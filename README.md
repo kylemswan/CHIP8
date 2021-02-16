@@ -16,10 +16,14 @@ See the Resources section for more information about the CHIP8.
 ## Examples
 
 Playing `BREAKOUT` on the CHIP8:
-![](https://github.com/kylemswan/CHIP8/assets/BREAKOUT.png)
+
+![](https://raw.githubusercontent.com/kylemswan/CHIP8/main/assets/BREAKOUT.png)
+
 
 Classic 2 player `PONG` clone:
-![](https://github.com/kylemswan/CHIP8/assets/PONG.png)
+
+![](https://raw.githubusercontent.com/kylemswan/CHIP8/main/assets/PONG.png)
+
 
 ## Dependencies
 
@@ -40,7 +44,7 @@ Then run the emulator by providing the path to the desired ROM file:
 The `makefile` also contains some helpful targets to clean up the source directory:
 ```
 make clean	// remove build artefacts
-make remove // remove the CHIP8 executable
+make remove	// remove the CHIP8 executable
 ```
 
 ## Controls
