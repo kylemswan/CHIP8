@@ -273,7 +273,7 @@ void CHIP8_exec(struct CHIP8 *C8) {
 			// FX0A - LD VX, KEY
 			C8->PC -= 2;
 			for (int i = 0; i < 16; i++) {
-				if (C8->keys[i] == 0) {
+				if (C8->keys[i]) {
 					C8->V[X(op)] = i;
 					C8->PC += 2;
 					break;

@@ -70,7 +70,7 @@ I have provided some ROM files for testing and playing with the emulator, all of
 
 ## Some Implementation Notes
 
-Since the CHIP8 virtual machine is designed to be implemented on many different systems, the timing has to be very flexible. The consensus online is that the delay and sound timers should be decremented at 60Hz and the CPU instructions should be run anywhere between 500 - 1000Hz. Of course, on a real system each operation would take a different amount of time, but a static timing delay suffices for a system as simple as the CHIP8. From my testing, I found 600Hz to be about the right speed for most ROMs, but you can change these timings by altering the `#defines` at the top of the `main.c` file.
+Since the CHIP8 virtual machine is designed to be implemented on many different systems, the timing has to be very flexible. The consensus online is that the delay and sound timers should be decremented at 60Hz and the CPU instructions should be run anywhere between 500 - 1000Hz. Of course, on a real system each operation would take a different amount of time, but a static timing delay suffices for a system as simple as the CHIP8. From my testing, I found 600Hz to be about the right speed for most ROMs, but you can change these timings by altering the `#define` directives at the top of the `main.c` file.
 
 The CHIP8 should emit a beeping / buzzing sound whenever the sound timer is non-zero. Whilst I have implemented the sound timer (`ST`) that decrements as required, I haven't yet added the sound effect, mainly because playing audio with *SDL* requires a separate link library and is quite involved - I plan on adding it sometime it in the future.
 
