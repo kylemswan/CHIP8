@@ -18,20 +18,6 @@ int display_init(struct display *D) {
 	return 0;
 }
 
-bool display_should_close(struct display *D) {
-	while (SDL_PollEvent(&D->event)) {
-		// check for window 'X' button clicks
-		if (D->event.type == SDL_QUIT) {
-			return true;
-		}
-		// check for 'ESCAPE' key presses
-		if (D->event.key.keysym.sym == SDLK_ESCAPE) {
-			return true;
-		}
-	}
-	return false;
-}
-
 void display_draw(struct display *D, uint8_t *pixels) {
 	// clear the display to black
 	SDL_SetRenderDrawColor(D->renderer, 0, 0, 0, 1);

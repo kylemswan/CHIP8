@@ -61,8 +61,8 @@ The CHIP8's hex input pad is mapped to a block of 16 keys on a standard keyboard
 Each ROM uses slightly different keys for controls, but you can easily work them out with some 'button mashing'.
 
 Press `ESC` to quit the emulator at any point.
-
-
+Press `o` to reload / restart.
+Press `p` to pause.
 
 ## ROMs
 
@@ -76,11 +76,11 @@ The CHIP8 should emit a beeping / buzzing sound whenever the sound timer is non-
 
 ## Future Improvements
 
-- Implement ability to pause and reset the CHIP8.
-- Build an assembler and disassembler for writing new ROMs.
-- Add audio - there should be a beep / buzz every second when the sound timer is non-zero.
-- Add support for the SUPER CHIP8 system, which has a larger display and a few more instructions.
- 
+- [x] Implement ability to pause and reset the CHIP8.
+- [ ] Build an assembler and disassembler for writing new ROMs.
+- [ ] Add audio - there should be a beep / buzz every second when the sound timer is non-zero.
+- [ ] Add support for the SUPER CHIP8 system, which has a larger display and a few more instructions.
+
 ## Resources
 
 - [The CHIP8 Wikipedia page.](https://en.wikipedia.org/wiki/CHIP-8)

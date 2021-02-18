@@ -2,6 +2,7 @@
 #include "display.h"
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 // frequency at which timers decrement and the screen is redrawn - default 60Hz
 #define IO_DELAY (1000 / 60.0)
@@ -32,8 +33,43 @@ int main(int argc, char **argv) {
 		return -1;
 	}
 
+	bool running = true;
+	bool paused = false;
 	int timer = SDL_GetTicks();
-	while (!display_should_close(&D)) {
+	while (running) {
+
+		SDL_Event e;
+		while (SDL_PollEvent(&e)) {
+			switch (e.type) {
+
+			case SDL_QUIT:
+				running = false;
+				break;
+
+			case SDL_KEYDOWN:
+				switch (e.key.keysym.sym) {
+
+				case SDLK_ESCAPE:
+					running = false;
+					break;
+
+				case SDLK_p:
+					paused = !paused;
+					break;
+
+				case SDLK_o:
+					CHIP8_init(&C8, argv[1]);
+					break;
+
+				}
+				break;
+			}
+		}
+
+		if (paused) {
+			continue;
+		}
+
 		CHIP8_handle_input(&C8);
 		CHIP8_exec(&C8);
 
