@@ -23,9 +23,9 @@ struct CHIP8 {
 	uint8_t V[16];
 	uint8_t DT;
 	uint8_t ST;
-	uint8_t SP;
 	uint16_t stack[16];
 	uint16_t PC;
+	uint16_t SP;
 	uint16_t I;
 };
 
