@@ -1,46 +1,32 @@
-# EXECUTABLE NAME
-EXE := CHIP8
-
-# DIRECTORY NAMES
-SRCDIR := source
-INCDIR := include
-BLDDIR := build
-
 # COMPILER AND FLAGS
 CC := gcc
-CCFLAGS := -I$(INCDIR) -g
-
-# LIBRARIES TO LINK WITH
-LIBS := -lSDL2
-
-# SOURCE FILES AND (INFERRED) OBJECT FILES
-SRCS := $(wildcard $(SRCDIR)/*.c)
-OBJS := $(addprefix $(BLDDIR)/, $(addsuffix .o, $(basename $(notdir $(SRCS)))))
+CCFLAGS := -Iinclude/ -g -MMD -Wall
+LDFLAGS := -lSDL2
 
 # LINK OBJECTS INTO THE EXECUTABLE
-$(EXE): $(OBJS)
-	@ $(CC) $^ -o $@ $(LIBS)
+CHIP8: build/main.o build/CHIP8.o build/display.o
+	@ $(CC) $^ -o $@ $(LDFLAGS)
 	@ echo "linking into $@ ..."
 	@ echo "build complete!"
 
 # COMPILE SOURCE FILES AND CREATE DEPENDENCY FILES
-$(BLDDIR)/%.o: $(SRCDIR)/%.c | $(BLDDIR)
+build/%.o: source/%.c | build/
 	@ echo "compiling $< ..."
-	@ $(CC) $(CCFLAGS) -MMD -c $< -o $@
+	@ $(CC) $(CCFLAGS) -c $< -o $@
 
 # CREATE THE BUILD DIRECTORY IF IT DOES NOT ALREADY EXIST
-$(BLDDIR):
+build/:
 	@ mkdir $@
 
 # INCLUDE DEPENDENCY RULES FOR SUBSEQUENT BUILDS
-include $(wildcard $(BLDDIR)/*.d)
+include $(wildcard build/*.d)
 
 # CLEAN UP BUILD FILES
 clean:
 	@ echo "removing build files ..."
-	@ rm -r $(BLDDIR)
+	@ rm -rf build/
 
 # REMOVE THE EXECUTABLE
 remove:
 	@ echo "removing executable ..."
-	@ rm $(EXE)
+	@ rm CHIP8
