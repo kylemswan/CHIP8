@@ -11,8 +11,6 @@ The CHIP8 has just 35 instructions - each represented by a 2 byte 'opcode' which
 - A stack allowing for up to 16 levels of nested procedures.
 - A delay timer and a sound timer.
 
-See the Resources section for more information about the CHIP8.
-
 ## Examples
 
 Playing `BREAKOUT` on the CHIP8:
@@ -84,6 +82,8 @@ The CHIP8 should emit a beeping / buzzing sound whenever the sound timer is non-
 - [ ] Add support for the SUPER CHIP8 system, which has a larger display and a few more instructions.
 
 ## Resources
+
+For more information about the CHIP8 system (including descriptions of its 35 instructions) visit the links below:
 
 - [The CHIP8 Wikipedia page.](https://en.wikipedia.org/wiki/CHIP-8)
 - [COWGOD'S CHIP8 Reference.](http://devernay.free.fr/hacks/chip8/C8TECH10.HTM#Dxyn)
