@@ -270,7 +270,7 @@ void CHIP8_exec(struct CHIP8 *C8) {
 			C8->I = 5 * C8->V[X(op)];
 			break;
 
-		case 0x33: // LD BCD, VX
+		case 0x33: // FX33 - LD BCD, VX
 			C8->mem[C8->I] = C8->V[X(op)] / 100;
 			C8->mem[C8->I + 1] = (C8->V[X(op)] / 10) % 10;
 			C8->mem[C8->I + 2] = C8->V[X(op)] % 10;

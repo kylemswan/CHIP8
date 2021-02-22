@@ -6,8 +6,8 @@ LDFLAGS := -lSDL2
 # link objects into the executable
 CHIP8: build/main.o build/CHIP8.o build/display.o
 	@ echo "linking into $@ ..."
-	@ echo "build complete!"
 	@ $(CC) $^ -o $@ $(LDFLAGS)
+	@ echo "build complete!"
 
 # compile source files and create dependecy (.d) files
 build/%.o: source/%.c | build/
